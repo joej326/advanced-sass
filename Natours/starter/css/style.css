@@ -11,6 +11,7 @@ Dark green: #28b485
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-align: center;
 }
 
 body {
@@ -19,11 +20,89 @@ body {
     font-size: 16px;
     line-height: 1.7;
     color: #777;
+    padding: 30px;
 }
 
 .header{
+    position: relative;
     height: 95vh;
-    background-image: linear-gradient(to right, #7ed56f, #55c57a, #28b485), url(../img/hero.jpg); /* we can use multiple images separated with commas. our 1st image is a gradient. */
+    background-image: linear-gradient(to right, #7ed56fb0, #28b483b9), url(../img/hero.jpg); /* we can use multiple images separated with commas. our 1st image is a gradient. */
     background-size: cover;
     background-position: top; /* this affects how the image crops in its responsiveness */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0% 100%);
+}
+
+.logo-box{
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.logo{
+    height: 35px;
+}
+
+.text-box{
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+}
+
+.heading-primary{
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.heading-primary-main{
+    animation: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+}
+/* if your animation is ticking up afterwards,there's a hack fix.
+
+backface-visibility: hidden;
+
+*/
+
+.heading-primary-sub{
+    animation: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    display: block;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 15px;
+}
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px)
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0px)
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px)
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0px)
+    }
+}
+
+
+.btn:link,      /* we have these together so that the appearance wont change whether the user has clicked or not. */
+.btn:visited {
+
 }
