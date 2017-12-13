@@ -101,8 +101,30 @@ backface-visibility: hidden;
     }
 }
 
+/*Inline elements: (for the display below)
+
+respect left & right margins and padding, but not top & bottom
+cannot have a width and height set
+allow other elements to sit to their left and right.
+see very important side notes on this here.
+Block elements:
+
+respect all of those
+force a line break after the block element
+Inline-block elements:
+
+allow other elements to sit to their left and right
+respect top & bottom margins and padding
+respect height and width */
 
 .btn:link,      /* we have these together so that the appearance wont change whether the user has clicked or not. */
 .btn:visited {
+    text-transform: uppercase;
+    text-decoration: unset;
+    padding: 15px 40px;
+    display: inline-block;
+}
 
+.btn-white{
+    background-color: white;
 }
