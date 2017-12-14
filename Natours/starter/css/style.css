@@ -52,6 +52,7 @@ body {
 .heading-primary{
     color: #fff;
     text-transform: uppercase;
+    margin-bottom: 60px;
 }
 
 .heading-primary-main{
@@ -101,12 +102,24 @@ backface-visibility: hidden;
     }
 }
 
+@keyframes moveInButton {
+    0% {
+        opacity: 0;
+        transform: translateY(50px)
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px)
+    }
+}
+
 /*Inline elements: (for the display below)
 
 respect left & right margins and padding, but not top & bottom
 cannot have a width and height set
 allow other elements to sit to their left and right.
 see very important side notes on this here.
+(inlines respond as if it is text)
 Block elements:
 
 respect all of those
@@ -119,12 +132,60 @@ respect height and width */
 
 .btn:link,      /* we have these together so that the appearance wont change whether the user has clicked or not. */
 .btn:visited {
+    position: relative;
     text-transform: uppercase;
     text-decoration: unset;
     padding: 15px 40px;
     display: inline-block;
+    border-radius: 100px;
+    transition: all 0.2s;    /* we want ALL of this class's properties to be animated over 0.2 seconds  */
 }
+
+.btn:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);  /* args: x, y, blur, color  */
+}
+
+.btn:active{
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);  /* args: x, y, blur, color  */
+}
+
 
 .btn-white{
     background-color: white;
+}
+
+/* the 'after' psuedo selector creates a virtual element. it requires a content attribute. (we can set it to nothing)
+we are using height and width of 100% b/c we are creating a virtual clone of our button. When using 'after' the height and width
+are in relation to the parent (which is the actual button).
+
+we also use postion absolute to postion our virtual element directly behind our actual button.
+(note that for this we added position relative to our button)*/
+
+.btn::after{
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+    transition: all 0.25s;  /* note that this trabsition must be on the INITIAL state for the animation to execute. dont put it on the hover. */
+}
+
+.btn-white::after{
+    background-color: #fff;
+}
+
+.btn:hover::after{
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;             /* opacity 0 will animate */
+}
+
+.btn-animation{
+    animation: moveInButton 0.5s ease-out 0.75s;  /* first time is the duration, second time is the delay. */
+    animation-fill-mode: backwards; /* this fixes the button being visible before the animation starts. (due to the delay)
 }
