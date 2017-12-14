@@ -187,5 +187,5 @@ we also use postion absolute to postion our virtual element directly behind our 
 
 .btn-animation{
     animation: moveInButton 0.5s ease-out 0.75s;  /* first time is the duration, second time is the delay. */
-    animation-fill-mode: backwards; /* this fixes the button being visible before the animation starts. (due to the delay)
+    animation-fill-mode: backwards; /* this fixes the button being visible before the animation starts. (due to the delay) */
 }
