@@ -156,11 +156,11 @@ respect height and width */
     background-color: white;
 }
 
-/* the 'after' psuedo selector creates a virtual element. it requires a content attribute. (we can set it to nothing)
-we are using height and width of 100% b/c we are creating a virtual clone of our button. When using 'after' the height and width
+/* the 'after' psuedo selector creates a virtual element. it requires a 'content' attribute. (we can set it to an empty string).
+We are using height and width of 100% b/c we are creating a virtual clone of our button. When using 'after' the height and width
 are in relation to the parent (which is the actual button).
 
-we also use postion absolute to postion our virtual element directly behind our actual button.
+we also use position absolute to postion our virtual element directly behind our actual button.
 (note that for this we added position relative to our button)*/
 
 .btn::after{
