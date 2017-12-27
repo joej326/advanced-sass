@@ -1,0 +1,83 @@
+  /*Inline elements: (for the display below)
+  
+  respect left & right margins and padding, but not top & bottom
+  cannot have a width and height set
+  allow other elements to sit to their left and right.
+  see very important side notes on this here.
+  (inlines respond as if it is text)
+  Block elements:
+  
+  respect all of those
+  force a line break after the block element
+  Inline-block elements:
+  
+  allow other elements to sit to their left and right
+  respect top & bottom margins and padding
+  respect height and width */
+  
+  .btn {
+    &:link, &:visited {
+      position: relative;
+      font-size: 1.6rem;
+      text-transform: uppercase;
+      text-decoration: unset;
+      padding: 1.5rem 4rem;
+      display: inline-block;
+      border-radius: 10rem;
+      transition: all 0.2s;
+      /* we want ALL of this class's properties to be animated over 0.2 seconds  */
+    }
+    &:hover {
+      transform: translateY(-0.5rem);
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+      /* args: x, y, blur, color  */
+      &::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
+        /* opacity 0 will animate */
+      }
+    }
+    &:active {
+      transform: translateY(-0.1rem);
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+      /* args: x, y, blur, color  */
+    }
+
+    &--white {
+      background-color: white;
+
+      &::after {
+        background-color: #fff;
+      }
+    }
+
+    &::after {
+      content: "";
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      border-radius: 10rem;
+      position: absolute;
+      top: 0rem;
+      left: 0rem;
+      z-index: -1;
+      transition: all 0.25s;
+      /* note that this transition must be on the INITIAL state for the animation to execute. dont put it on the hover. */
+    }
+    
+    &--animation {
+      animation: moveInButton 0.5s ease-out 0.75s;
+      /* first time is the duration, second time is the delay. */
+      animation-fill-mode: backwards;
+      /* this fixes the button being visible before the animation starts. (due to the delay) */
+    }
+  }
+  
+  
+  /* the 'after' psuedo selector creates a virtual element. it requires a 'content' attribute. (we can set it to an empty string).
+  We are using height and width of 100% b/c we are creating a virtual clone of our button. When using 'after' the height and width
+  are in relation to the parent (which is the actual button).
+  
+  we also use position absolute to postion our virtual element directly behind our actual button.
+  (note that for this we added position relative to our button)*/
+  
