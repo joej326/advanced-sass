@@ -1,3 +1,27 @@
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0rem); } }
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0rem); } }
+
+@keyframes moveInButton {
+  0% {
+    opacity: 0;
+    transform: translateY(5rem); }
+  100% {
+    opacity: 1;
+    transform: translateY(0rem); } }
+
 /* moved box-sizing: border-box down to the body and set the 'all' selector to inherit.
 This is considered a better practice in the css community. 
 
@@ -26,35 +50,7 @@ html {
   font-size: 0.7vw; }
 
 body {
-  font-family: "Lato", sans-serif;
-  /*if lato is not available, use sans-serif */
-  font-weight: 400;
-  /* font-size: 16px; */
-  line-height: 1.7;
-  color: #777;
-  padding: 3rem;
   box-sizing: border-box; }
-
-.header {
-  position: relative;
-  height: 95vh;
-  background-image: linear-gradient(to right, rgba(126, 213, 111, 0.8), rgba(40, 180, 131, 0.8)), url(../img/hero.jpg);
-  /* we can use multiple images separated with commas. our 1st image is a gradient. */
-  background-size: cover;
-  background-position: top;
-  /* this affects how the image crops in its responsiveness */
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0% 100%); }
-  .header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem; }
-  .header__logo {
-    height: 3.5rem; }
-  .header__text-box {
-    position: absolute;
-    left: 50%;
-    top: 40%;
-    transform: translate(-50%, -50%); }
 
 .heading-primary {
   color: #fff;
@@ -80,35 +76,20 @@ body {
     letter-spacing: 1.5rem;
     backface-visibility: hidden; }
 
+body {
+  font-family: "Lato", sans-serif;
+  /*if lato is not available, use sans-serif */
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem; }
+
 /* if your animation is ticking up afterwards,there's a hack fix.
   
   backface-visibility: hidden;
   
   */
-@keyframes moveInLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-10rem); }
-  100% {
-    opacity: 1;
-    transform: translateX(0rem); } }
-
-@keyframes moveInRight {
-  0% {
-    opacity: 0;
-    transform: translateX(10rem); }
-  100% {
-    opacity: 1;
-    transform: translateX(0rem); } }
-
-@keyframes moveInButton {
-  0% {
-    opacity: 0;
-    transform: translateY(5rem); }
-  100% {
-    opacity: 1;
-    transform: translateY(0rem); } }
-
 /*Inline elements: (for the display below)
   
   respect left & right margins and padding, but not top & bottom
@@ -140,6 +121,10 @@ body {
   transform: translateY(-0.5rem);
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
   /* args: x, y, blur, color  */ }
+  .btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+    /* opacity 0 will animate */ }
 
 .btn:active {
   transform: translateY(-0.1rem);
@@ -148,13 +133,9 @@ body {
 
 .btn--white {
   background-color: white; }
+  .btn--white::after {
+    background-color: #fff; }
 
-/* the 'after' psuedo selector creates a virtual element. it requires a 'content' attribute. (we can set it to an empty string).
-  We are using height and width of 100% b/c we are creating a virtual clone of our button. When using 'after' the height and width
-  are in relation to the parent (which is the actual button).
-  
-  we also use position absolute to postion our virtual element directly behind our actual button.
-  (note that for this we added position relative to our button)*/
 .btn::after {
   content: "";
   display: inline-block;
@@ -168,16 +149,35 @@ body {
   transition: all 0.25s;
   /* note that this transition must be on the INITIAL state for the animation to execute. dont put it on the hover. */ }
 
-.btn--white::after {
-  background-color: #fff; }
-
-.btn:hover::after {
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0;
-  /* opacity 0 will animate */ }
-
 .btn--animation {
   animation: moveInButton 0.5s ease-out 0.75s;
   /* first time is the duration, second time is the delay. */
   animation-fill-mode: backwards;
   /* this fixes the button being visible before the animation starts. (due to the delay) */ }
+
+/* the 'after' psuedo selector creates a virtual element. it requires a 'content' attribute. (we can set it to an empty string).
+  We are using height and width of 100% b/c we are creating a virtual clone of our button. When using 'after' the height and width
+  are in relation to the parent (which is the actual button).
+  
+  we also use position absolute to postion our virtual element directly behind our actual button.
+  (note that for this we added position relative to our button)*/
+.header {
+  position: relative;
+  height: 95vh;
+  background-image: linear-gradient(to right, rgba(126, 213, 111, 0.8), rgba(40, 180, 131, 0.8)), url(../img/hero.jpg);
+  /* we can use multiple images separated with commas. our 1st image is a gradient. */
+  background-size: cover;
+  background-position: top;
+  /* this affects how the image crops in its responsiveness */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0% 100%); }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%); }

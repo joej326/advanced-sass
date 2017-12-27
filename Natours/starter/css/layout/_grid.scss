@@ -1,0 +1,36 @@
+
+.row {
+    max-width: 114rem; // meax-width means that if the viewport is SMALLER than specified, the element will fill 100% of viewwidth.
+    background-color: #eee;
+    margin: 0 auto; // a well-known trick to center a block element inside another block element horizontally.
+    
+    @include clearfix;
+
+    // the square braces is an attribute selector. (ex: [src] { } would select all the image "src's" on the page.
+    // The carrot signifies that we want the attribute to START with the specified parameters. (this works same as regex so * and $ apply)
+    [class^="col-"] {
+        background-color: orangered; 
+        float: left;
+
+
+        // not-last-child used b/c the column furthest on the right won't have the gutter. (see pic: https://imgur.com/Auzpo9n )
+        &:not(:last-child) {
+            margin-right: $gutter-horizontal;
+        }
+    }
+
+    // not means EVERYTHING EXCEPT the argument
+    &:not(:last-child) {
+        margin-bottom: $gutter-vertical;
+    }
+
+    // since this is nested inside of the .row, it means "all of the .col-1-of-2 that exist INSIDE of .row"
+    .col-1-of-2 {
+        width: calc((100% - #{$gutter-horizontal}) / 2); // the #{} is used in the 'calc' function when using sass variables
+        // (above) gives us the length of one column in row of 2.
+    }
+
+    .col-1-of-3 {
+        width: calc((100% - (2 * #{$gutter-horizontal})) / 3); // gives us the length of one column in row of 3.
+    }
+}
