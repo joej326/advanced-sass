@@ -17,18 +17,55 @@
             <div class="header__logo-box"> <!-- double underline for elements that cannot stand on their own. BEM-->
                 <img class="header__logo" src="./img/logo-white.png" alt="Logo">
             </div>
-            <div class="header__text-box">
-                <h1 class="heading-primary"> <!-- double dashes for modifiers -->
-                    <span class="heading-primary--main">Outdoors</span>
-                    <span class="heading-primary--sub">is where life happens</span>
-                </h1>
-
-                <a href="#" class="btn--animation btn btn--white">Discover our tours</a>
+            <div class="u-center-text">
+                <div class="header__text-box">
+                    <h1 class="heading-primary"> <!-- double dashes for modifiers -->
+                        <span class="heading-primary--main">Outdoors</span>
+                        <span class="heading-primary--sub">is where life happens</span>
+                    </h1>
+    
+                    <a href="#" class="btn--animation btn btn--white">Discover our tours</a>
+                </div>
             </div>
+            
             
         </header>
 
-        <section class="grid-test">
+        <main>
+            <section class="section-about">
+                <div class="u-center-text u-margin-bottom-big"> 
+                    <!-- we have several h2 elements on our page and they all have different margins. This is why we are using utilities -->
+                    <h2 class="heading-secondary">Exciting Tours For Adventurous People</h2>
+                </div>
+
+                <div class="row">
+                        <div class="col-1-of-2">
+                            <h3 class="heading-tertiary u-margin-bottom-small">You're going to fall inlove with nature.</h3>
+                            <p class="paragraph">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quae, ea dolorum perspiciatis fugiat excepturi ratione 
+                                rerum sequi sed veniam a fuga maiores sapiente repudiandae odit nisi voluptate harum in?
+                            </p>
+                            <h3 class="heading-tertiary u-margin-bottom-small">Live Adventures Like You Never Have Before</h3>
+                            <p class="paragraph">
+                                Veniam qui optio sunt dolore aspernatur itaque nihil sit numquam, recusandae laborum veritatis doloribus excepturi eos. 
+                                Nostrum totam tempore exercitationem nisi expedita. LNemo iste consequatur.
+                            </p>
+
+                            <a href="#" class="btn-text">Learn More &rarr;</a>
+                        </div>
+                        <div class="col-1-of-2">
+                            <div class="composition">
+                                <img src="img/nat-1-large.jpg" alt="nature" class="composition__photo composition__photo--p1">
+                                <img src="img/nat-2-large.jpg" alt="nature" class="composition__photo composition__photo--p2">
+                                <img src="img/nat-3-large.jpg" alt="nature" class="composition__photo composition__photo--p3">
+                            </div>
+                        </div>
+                    </div>
+                
+            </section>
+        </main>
+
+        <!-- <section class="grid-test">
             <div class="row">
                 <div class="col-1-of-2">
                     Col 1 of 2
@@ -73,7 +110,7 @@
                     Col 1 of 4
                 </div>
             </div>
-        </section>
+        </section> -->
         
     </body>
 </html>

@@ -6,13 +6,11 @@ we also include all befores and afters. This avoids any wonky behavior from them
 * {
     margin: 0;
     padding: 0;
-    text-align: center;
     box-sizing: inherit;
     &::before, 
     &::after {
       margin: 0;
       padding: 0;
-      text-align: center;
       box-sizing: inherit;
     }
   }

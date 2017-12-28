@@ -18,7 +18,7 @@
   .btn {
     &:link, &:visited {
       position: relative;
-      font-size: 1.6rem;
+      font-size: $default-font-size;
       text-transform: uppercase;
       text-decoration: unset;
       padding: 1.5rem 4rem;
@@ -81,3 +81,28 @@
   we also use position absolute to postion our virtual element directly behind our actual button.
   (note that for this we added position relative to our button)*/
   
+
+  .btn-text {
+    &:link,
+    &:visited {
+      font-size: $default-font-size;
+      transition: all 0.2s;
+      color: $color-primary;
+      display: inline-block;
+      text-decoration: none;
+      border-bottom: 1px solid $color-primary; // small pixel amounts are okay since they're so small it's negligible.
+      padding: 3px;
+    }
+
+    &:hover {
+      transform: translateY(-0.3rem);
+      box-shadow: 0.2rem 0.5rem 1rem rgba($color-black, 0.3);
+      background-color: $color-primary;
+      color: $color-white;
+    }
+
+    &:active {
+      transform: translateY(0rem);
+      box-shadow: 0rem 0rem 0rem;
+    }
+  }
