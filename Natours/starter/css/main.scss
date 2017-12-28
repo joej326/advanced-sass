@@ -1,8 +1,8 @@
-@import "abstracts/functions";
+@import "abstracts/functions"; // we can omit the underscore for all of these sass figures it out
 @import "abstracts/mixins";
 @import "abstracts/variables";
 
-@import "base/animations"; // we can omit the underscore
+@import "base/animations"; 
 @import "base/base";
 @import "base/typography";
 @import "base/utilities";

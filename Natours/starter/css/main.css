@@ -132,7 +132,7 @@ body {
   /* args: x, y, blur, color  */ }
 
 .btn--white {
-  background-color: white; }
+  background-color: #fff; }
   .btn--white::after {
     background-color: #fff; }
 
@@ -161,10 +161,34 @@ body {
   
   we also use position absolute to postion our virtual element directly behind our actual button.
   (note that for this we added position relative to our button)*/
+.row {
+  max-width: 114rem;
+  background-color: #eee;
+  margin: 0 auto; }
+  .row::after {
+    content: '';
+    display: table;
+    clear: both; }
+  .row [class^="col-"] {
+    background-color: orangered;
+    float: left; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 6rem; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+  .row .col-1-of-2 {
+    width: calc((100% - 6rem) * (1 /2)); }
+  .row .col-1-of-3 {
+    width: calc((100% - (2 * 6rem)) * (1 /3)); }
+  .row .col-2-of-3 {
+    width: calc((2 * ((100% - (2 * 6rem)) * (1 /3))) + 6rem); }
+  .row .col-1-of-4 {
+    width: calc((100% - (3 * 6rem)) * (1 / 4)); }
+
 .header {
   position: relative;
   height: 95vh;
-  background-image: linear-gradient(to right, rgba(126, 213, 111, 0.8), rgba(40, 180, 131, 0.8)), url(../img/hero.jpg);
+  background-image: linear-gradient(to right, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
   /* we can use multiple images separated with commas. our 1st image is a gradient. */
   background-size: cover;
   background-position: top;
