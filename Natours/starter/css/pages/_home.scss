@@ -2,4 +2,23 @@
     background-color: $color-grey-light-1;
     padding: 25rem 0;
     margin-top: -20vh;
+
+    &--paragraph {
+        width: 45rem;
+    }
+}
+
+.section-features {
+    padding: 20rem 0;
+    padding-top: 30rem;
+    background-image: linear-gradient(to right, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), url(../img/nat-4.jpg);
+    background-size: cover; // we almost ALWAYS want this on our backgrounds
+    clip-path: polygon(0 25vh, 100% 0, 100% 100%, 0% 100%);
+    margin-top: -21rem;
+}
+
+.section-tours {
+    background-color: $color-grey-light-1;
+    padding: 25rem 0 50rem 0;
+    margin-top: -10rem;
 }
