@@ -2,14 +2,38 @@
     perspective: 150rem; // perspective needs to be added on the actual element, not the hover. It makes the rotation look like it's coming out at you.
     -moz-perspective: 150rem; // need this for it to work in firefox
     // the 150rem is found through experimentation. Basically, the lower the amount, the more dramatic the effect.
+    position: relative;
+    height: 50rem;
 
     &__side {
-        background-color: orangered;
+        // background-color: orangered;
         height: 50rem;
-        transition: all 0.8s;
+        color: white;
+        font-size: 2rem;
+        transition: all 0.8s ease;
+        position: absolute; // the height shrank to 0 when we made position absolute. fix is to make parent the desired height.
+        top: 0;
+        left: 0;
+        width: 100%; // the cards got really skinny when position set to absolute, this width fixes that.
+        backface-visibility: hidden;
+        
+
+        &--front {
+            background-color: $color-white;
+            background-color: gray;
+        }
+
+        &--back {
+            background-color: blue;
+            transform: rotateY(180deg);
+        }
     }
 
-    &:hover &__side {
+    &:hover &__side--front {
         transform: rotateY(180deg);
+    }
+
+    &:hover &__side--back {
+        transform: rotateY(0);
     }
 }
