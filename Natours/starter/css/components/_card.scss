@@ -18,7 +18,8 @@
         left: 0;
         width: 100%; // the cards got really skinny when position set to absolute, this width fixes that.
         backface-visibility: hidden;
-        border-radius: 3px;
+        border-radius: 0.5rem;
+        overflow: hidden; // the image was sticking out so you couldn't see the rounded edge
         box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
         
 
@@ -80,9 +81,33 @@
     // doesn't belong inside of __heading b/c it is not a modifier. It is its own element.
     &__heading-span { 
         padding: 1rem 1.5rem;
+        box-decoration-break: clone; //The box-decoration-break property specifies how the background, padding, border,
+        // border-image, box-shadow, margin, and clip-path of an element is applied when the box for the element is fragmented.
+        -webkit-box-decoration-break: clone;
 
         &--1 {
             background-image: linear-gradient(to right bottom, rgba($color-secondary-light, 0.8), rgba($color-secondary-dark, 0.8));
+        }
+    }
+
+    &__details {
+
+        ul {
+            list-style: none;
+            margin: 0 auto;
+            width: 80%; // keeps the line underneath from going across the whole card
+
+
+            li {
+                text-align: center;
+                color: $color-black;
+                font-size: 1.5rem;
+                padding: 1rem;
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid $color-grey-light-2;
+                }
+            }
         }
     }
 }
