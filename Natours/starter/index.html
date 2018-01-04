@@ -121,9 +121,17 @@
                                 <div class="col-1-of-3">
                                     <div class="card">
                                         <div class="card__side card__side--front">
-                                            Front
+                                            <div class="card__picture card__picture--1"> <!-- note that these 3 divs are NOT dependant on card__side -->
+                                                &nbsp;                                   
+                                            </div>                                       
+                                            <h4 class="card__heading">
+                                                <span class="card__heading-span card__heading-span--1">The Sea Explorer</span> <!--note: card__heading-span   -->
+                                            </h4>                                                                              <!-- is not a modifier! see "%%%"   -->
+                                            <div class="card__details">
+                                                Details
+                                            </div>
                                         </div>
-                                        <div class="card__side card__side--back">
+                                        <div class="card__side card__side--back card__side--back-1">
                                             Back
                                         </div>
                                     </div>
