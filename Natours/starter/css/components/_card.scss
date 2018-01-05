@@ -5,11 +5,11 @@
     -moz-perspective: 150rem; // need this for it to work in firefox
     // the 150rem is found through experimentation. Basically, the lower the amount, the more dramatic the effect.
     position: relative;
-    height: 50rem;
+    height: 52rem;
 
     &__side {
         // background-color: orangered;
-        height: 50rem;
+        height: 52rem;
         color: white;
         font-size: 2rem;
         transition: all 0.8s ease;
@@ -109,5 +109,28 @@
                 }
             }
         }
+    }
+
+    //BACK SIDE STYLING
+    &__cta {
+        position: absolute;             ////
+        top: 50%;                       //////// these are used to center the button within the parent (it's a non-block element "a" tag)
+        left: 50%;                      ////////
+        transform: translate(-50%, -50%);//
+    }
+
+    &__price-box {
+
+    }
+
+    &__price-only {
+        font-size: 1.4rem;
+        text-transform: uppercase;
+    }
+
+    &__price-value {
+        font-size: 6rem;
+        // margin: -3rem 0rem 0rem -2rem
+        // font-weight: 100;
     }
 }

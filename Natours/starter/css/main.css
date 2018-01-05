@@ -218,9 +218,9 @@ body {
   perspective: 150rem;
   -moz-perspective: 150rem;
   position: relative;
-  height: 50rem; }
+  height: 52rem; }
   .card__side {
-    height: 50rem;
+    height: 52rem;
     color: white;
     font-size: 2rem;
     transition: all 0.8s ease;
@@ -278,6 +278,16 @@ body {
       padding: 1rem; }
       .card__details ul li:not(:last-child) {
         border-bottom: 1px solid #eee; }
+  .card__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+  .card__price-only {
+    font-size: 1.4rem;
+    text-transform: uppercase; }
+  .card__price-value {
+    font-size: 6rem; }
 
 .composition {
   position: relative; }
