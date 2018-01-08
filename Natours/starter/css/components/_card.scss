@@ -88,13 +88,23 @@
     // %%%
     // doesn't belong inside of __heading b/c it is not a modifier. It is its own element.
     &__heading-span { 
-        padding: 1rem 1.5rem;
+        padding: 1rem 0.5rem;
         box-decoration-break: clone; //The box-decoration-break property specifies how the background, padding, border,
         // border-image, box-shadow, margin, and clip-path of an element is applied when the box for the element is fragmented.
         -webkit-box-decoration-break: clone;
 
         &--1 {
             background-image: linear-gradient(to right bottom, rgba($color-secondary-light, 0.8), rgba($color-secondary-dark, 0.8));
+        }
+
+        &--2 {
+            background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8));
+            margin-right: 0.2rem;
+        }
+
+        &--3 {
+            background-image: linear-gradient(to right bottom, rgba($color-tertiary-light, 0.8), rgba($color-tertiary-dark, 0.8));
+            margin-left: -2rem;
         }
     }
 
