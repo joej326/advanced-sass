@@ -272,7 +272,10 @@ body {
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone; }
     .card__heading-span--1 {
-      background-image: linear-gradient(to right bottom, rgba(255, 185, 0, 0.8), rgba(255, 119, 48, 0.8)); }
+      background-image: linear-gradient(to right bottom, rgba(255, 185, 0, 0.8), rgba(255, 119, 48, 0.8));
+      box-decoration-break: slice;
+      -webkit-box-decoration-break: slice;
+      margin-right: -1rem; }
     .card__heading-span--2 {
       background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8));
       margin-right: 0.2rem; }
