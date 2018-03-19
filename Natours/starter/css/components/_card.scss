@@ -95,6 +95,9 @@
 
         &--1 {
             background-image: linear-gradient(to right bottom, rgba($color-secondary-light, 0.8), rgba($color-secondary-dark, 0.8));
+            box-decoration-break: slice;
+            -webkit-box-decoration-break: slice;
+            margin-right: -1rem;
         }
 
         &--2 {
