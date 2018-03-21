@@ -4,5 +4,32 @@
     box-shadow: 0 3rem 5rem rgba($color-black, 0.1);
     background-color: $color-white;
     border-radius: 3px;
-    font-size: 500px;
+    padding: 6rem;
+    font-size: $default-font-size;
+    transform: skewX(-12deg);
+
+    & > * { // greater than symbol means children
+
+        // transform: skewX(12deg);
+    }
+
+    &__shape {
+        transform: translate(-12%, 3%) skewX(12deg);
+        width: 15rem;
+        height: 15rem;
+        // background-color: orangered;
+        float: left;
+        -webkit-shape-outside: circle(50% at 50% 50%); // shape-outside requieres width, height, and float to work
+        shape-outside: circle(50% at 50% 50%); // means radius is 50% of parent in length at 50% 50% (center)
+        -webkit-clip-path: circle(50% at 50% 50%);
+        clip-path: circle(47% at 50% 50%); // using clip-path to make our element the same shape as above
+    }
+
+    &__img {
+        height: 100%;
+    }
+
+    &__text {
+        transform: skewX(12deg);
+    }
 }
